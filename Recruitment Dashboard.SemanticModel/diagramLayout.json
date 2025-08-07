@@ -1,0 +1,87 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 74.5625
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 236,
+            "y": 424.9375
+          },
+          "nodeIndex": "Monthly ASL Data",
+          "nodeLineageTag": "df854c25-2a7c-4f0f-830c-7ab0acd8b1df",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 858.9375
+          },
+          "nodeIndex": "DimRole",
+          "nodeLineageTag": "61ae31c1-b46c-4d4d-a6e2-9075a1c89657",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 871.36163941535983,
+            "y": 613.4375
+          },
+          "nodeIndex": "DimDepartment",
+          "nodeLineageTag": "2b44c5ff-0c8e-4adc-b73b-bfa8bed711e9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 426.36163941535983,
+            "y": 611.4375
+          },
+          "nodeIndex": "Recruitment Fact",
+          "nodeLineageTag": "2dd444f5-2f7e-47dd-aba7-f3bb46274f63",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 673.36163941535983,
+            "y": 895.5625
+          },
+          "nodeIndex": "Date Table",
+          "nodeLineageTag": "0a7d62a8-df9b-4993-90da-5730e0819be8",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 4
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

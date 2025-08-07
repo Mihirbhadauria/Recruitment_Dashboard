@@ -1,0 +1,83 @@
+{
+  "config": "{\"version\":\"5.52\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"version\":\"5.52\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU02",
+            "path": "BaseThemes/CY24SU02.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "Dashboard_Background6673657225099644.png",
+            "path": "Dashboard_Background6673657225099644.png",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"background\":[{\"properties\":{\"image\":{\"image\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Dashboard Background.png'\"}}},\"url\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Dashboard_Background6673657225099644.png\"}}},\"scaling\":{\"expr\":{\"Literal\":{\"Value\":\"'Normal'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"2f668046055d045aac97\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1018.8957055214725,\"y\":419.4683026584867,\"z\":2000,\"width\":197.6278118609407,\"height\":123.68098159509202,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(Recruitment Fact.EmployeeID)\"}],\"Rows\":[{\"queryRef\":\"DimRole.Level\",\"active\":true},{\"queryRef\":\"DimRole.Role\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimRole\",\"Type\":0},{\"Name\":\"r\",\"Entity\":\"Recruitment Fact\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"EmployeeID\"}},\"Function\":2},\"Name\":\"Min(Recruitment Fact.EmployeeID)\",\"NativeReferenceName\":\"Number of Hires\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Level\"},\"Name\":\"DimRole.Level\",\"NativeReferenceName\":\"Level\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Role\"},\"Name\":\"DimRole.Role\",\"NativeReferenceName\":\"Role\"}]},\"expansionStates\":[{\"roles\":[\"Rows\"],\"levels\":[{\"queryRefs\":[\"DimRole.Level\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimRole\"}},\"Property\":\"Level\"}}],\"isPinned\":true},{\"queryRefs\":[\"DimRole.Role\"],\"isCollapsed\":true,\"isPinned\":true}],\"root\":{\"identityValues\":null}}],\"columnProperties\":{\"Min(Recruitment Fact.EmployeeID)\":{\"displayName\":\"Number of Hires\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnHeaders\":[{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"titleAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}}}}],\"values\":[{\"properties\":{\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontColorPrimary\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"grid\":[{\"properties\":{\"gridHorizontal\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"gridHorizontalColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0.6}}}}},\"gridVertical\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"columnFormatting\":[{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}},\"styleTotal\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"styleHeader\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"metadata\":\"Min(Recruitment Fact.EmployeeID)\"}}],\"columnTotal\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}}}}],\"rowTotal\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'None'\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Hires by Level'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 123.68,
+          "width": 197.63,
+          "x": 1018.90,
+          "y": 419.47,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"36a58d4c0bc3130b3b45\",\"layouts\":[{\"id\":0,\"position\":{\"x\":700.2044989775052,\"y\":422.0858895705522,\"z\":3000,\"width\":241.4723926380368,\"height\":108.62985685071575,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"DimRole.Role\",\"active\":true}],\"Values\":[{\"queryRef\":\"Min(Recruitment Fact.EmployeeID)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimRole\",\"Type\":0},{\"Name\":\"r\",\"Entity\":\"Recruitment Fact\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Role\"},\"Name\":\"DimRole.Role\",\"NativeReferenceName\":\"Role\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"EmployeeID\"}},\"Function\":5},\"Name\":\"Min(Recruitment Fact.EmployeeID)\",\"NativeReferenceName\":\"Number of Hires\"}]},\"columnProperties\":{\"Min(Recruitment Fact.EmployeeID)\":{\"displayName\":\"Number of Hires\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnFormatting\":[{\"properties\":{\"styleHeader\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"styleTotal\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"metadata\":\"Min(Recruitment Fact.EmployeeID)\"}}],\"columnHeaders\":[{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"grid\":[{\"properties\":{\"gridHorizontal\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"gridHorizontalColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0.6}}}}}}}],\"subTotals\":[{\"properties\":{\"rowSubtotals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"columnSubtotals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"values\":[{\"properties\":{\"fontColorPrimary\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'None'\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Top 3 Hires'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimRole\"}},\"Property\":\"Role\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimRole\",\"Type\":0},{\"Name\":\"r\",\"Entity\":\"Recruitment Fact\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Role\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"EmployeeID\"}},\"Function\":5}}}],\"Top\":3}}},\"Type\":2},{\"Name\":\"d\",\"Entity\":\"DimRole\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Role\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0,\"isHiddenInViewMode\":false}]",
+          "height": 108.63,
+          "width": 241.47,
+          "x": 700.20,
+          "y": 422.09,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"e18eeb8630b483464300\",\"layouts\":[{\"id\":0,\"position\":{\"x\":700.2044989775052,\"y\":116.48261758691207,\"z\":0,\"width\":533.3333333333334,\"height\":96.85071574642127,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"advancedSlicerVisual\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDepartment.Department\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDepartment\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Department\"},\"Name\":\"DimDepartment.Department\",\"NativeReferenceName\":\"Department\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{}}],\"general\":[{\"properties\":{}}],\"selection\":[{\"properties\":{\"singleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"shapeCustomRectangle\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRoundedByPixel'\"}}}},\"selector\":{\"id\":\"default\"}}],\"layout\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"maxTiles\":{\"expr\":{\"Literal\":{\"Value\":\"6L\"}}},\"cellPadding\":{\"expr\":{\"Literal\":{\"Value\":\"7L\"}}}}}],\"overFlow\":[{\"properties\":{\"overFlowStyle\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"overFlowDirection\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"value\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}},\"horizontalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.85,
+          "width": 533.33,
+          "x": 700.20,
+          "y": 116.48,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"f86fd96f24d9cc3cd81c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":115.8282208588957,\"y\":116.48261758691207,\"z\":1000,\"width\":532.678936605317,\"height\":406.3803680981595,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Date Table.Date\",\"active\":true}],\"Series\":[{\"queryRef\":\"DimDepartment.Department\"}],\"Y\":[{\"queryRef\":\"CountNonNull(Recruitment Fact.EmployeeID)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Date Table\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"DimDepartment\",\"Type\":0},{\"Name\":\"r\",\"Entity\":\"Recruitment Fact\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Date Table.Date\",\"NativeReferenceName\":\"Date\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Department\"},\"Name\":\"DimDepartment.Department\",\"NativeReferenceName\":\"Department\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"EmployeeID\"}},\"Function\":5},\"Name\":\"CountNonNull(Recruitment Fact.EmployeeID)\",\"NativeReferenceName\":\"Count of EmployeeID\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"axisType\":{\"expr\":{\"Literal\":{\"Value\":\"'Scalar'\"}}}}}],\"valueAxis\":[{\"properties\":{\"start\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"invertAxis\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"end\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Date Table\"}},\"Property\":\"Date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Date Table\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"}},\"Right\":{\"DateSpan\":{\"Expression\":{\"Now\":{}},\"TimeUnit\":3}}}}}]},\"type\":\"RelativeDate\",\"howCreated\":0,\"isHiddenInViewMode\":false}]",
+          "height": 406.38,
+          "width": 532.68,
+          "x": 115.83,
+          "y": 116.48,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
