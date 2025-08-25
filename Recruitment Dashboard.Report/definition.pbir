@@ -3,7 +3,6 @@
   "datasetReference": {
     "byPath": {
       "path": "../Recruitment Dashboard.SemanticModel"
-    },
-    "byConnection": null
+    }
   }
 }

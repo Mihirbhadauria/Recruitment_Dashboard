@@ -1,0 +1,41 @@
+table 'Monthly ASL Data'
+	lineageTag: df854c25-2a7c-4f0f-830c-7ab0acd8b1df
+
+	column Month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3a4fdbb2-ba3c-453b-911a-4237127e056a
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ASL
+		dataType: int64
+		formatString: 0
+		lineageTag: dead9695-e2f3-4d1b-b970-e1e20a9d8697
+		summarizeBy: sum
+		sourceColumn: ASL
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Monthly ASL Data' = m
+		mode: import
+		queryGroup: Bronze
+		source =
+				let
+				    Source = #"Base Reference Query",
+				    #"C:\Users\Mihir\Desktop\Personal Projects\PowerBI Projects\Recruitment_Dashboard\Data\_Mock_ASL_Data xlsx" = Source{[#"Folder Path"="C:\Users\Mihir\Desktop\Personal Projects\PowerBI Projects\Recruitment_Dashboard\Data\",Name="Mock_ASL_Data.xlsx"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"C:\Users\Mihir\Desktop\Personal Projects\PowerBI Projects\Recruitment_Dashboard\Data\_Mock_ASL_Data xlsx"),
+				    Sheet1_Sheet = #"Imported Excel Workbook"{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Month", type date}, {"ASL", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,89 @@
+expression 'Base Reference Query' =
+		let
+		    Source = Folder.Files("C:\Users\Mihir\Desktop\Personal Projects\PowerBI Projects\Recruitment_Dashboard\Data")
+		in
+		    Source
+	lineageTag: 1a2a7e1b-8ad8-47f2-9cba-23a7f8b8563f
+	queryGroup: 'Base Reference'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Recruitment Sheet Base Reference' =
+		let
+		    Source = #"Base Reference Query",
+		    #"C:\Users\Mihir\Desktop\Personal Projects\PowerBI Projects\Recruitment_Dashboard\Data\_Sample_Recruitment_Data xlsx" = Source{[#"Folder Path"="C:\Users\Mihir\Desktop\Personal Projects\PowerBI Projects\Recruitment_Dashboard\Data\",Name="Sample_Recruitment_Data.xlsx"]}[Content],
+		    #"Imported Excel Workbook" = Excel.Workbook(#"C:\Users\Mihir\Desktop\Personal Projects\PowerBI Projects\Recruitment_Dashboard\Data\_Sample_Recruitment_Data xlsx")
+		in
+		    #"Imported Excel Workbook"
+	lineageTag: aeac8299-4b42-4538-b2ba-45d2b834ae90
+	queryGroup: 'Base Reference'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Recruitment Staging' =
+		let
+		    Source = #"Recruitment Sheet Base Reference",
+		    Recruitment_Sheet = Source{[Item="Recruitment",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Recruitment_Sheet, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"EmployeeID", type text}, {"Role", type text}, {"Department", type text}, {"Level", type text}, {"DateOfHire", type date}, {"TimeToHireDays", Int64.Type}, {"Source", type text}, {"AvgRetentionMonths", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: e462ccff-9aed-41ad-9ae1-046b9819d113
+	queryGroup: 'Bronze\Recruitment Data Staging'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Transfers Staging' =
+		let
+		    Source = #"Recruitment Sheet Base Reference",
+		    Transfers_Sheet = Source{[Item="Transfers",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Transfers_Sheet, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"DateOfTransfer", type date}})
+		in
+		    #"Changed Type"
+	lineageTag: 720e0d04-f9b4-4f58-8dcd-85642ef660d7
+	queryGroup: 'Bronze\Recruitment Data Staging'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Seperations Staging' =
+		let
+		    Source = #"Recruitment Sheet Base Reference",
+		    Separations_Sheet = Source{[Item="Separations",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Separations_Sheet, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"EmployeeID", type text}, {"Role", type text}, {"Department", type text}, {"DateOfExit", type date}, {"SeparationReason", type text}})
+		in
+		    #"Changed Type"
+	lineageTag: ca53d084-7ee5-4f00-9474-d944438fc20c
+	queryGroup: 'Bronze\Recruitment Data Staging'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Recruitment Fact (Silver)' =
+		let
+		    Source = #"Recruitment Staging",
+		    #"Joined DimRole" = Table.NestedJoin(Source, {"Role", "Level"}, DimRole, {"Role", "Level"}, "DimRole", JoinKind.LeftOuter),
+		    #"Merged Queries" = Table.NestedJoin(#"Joined DimRole", {"Department"}, DimDepartment, {"Department"}, "DimDepartment", JoinKind.LeftOuter),
+		    #"Expanded DimRole" = Table.ExpandTableColumn(#"Merged Queries", "DimRole", {"RoleID"}, {"RoleID"}),
+		    #"Expanded DimDepartment" = Table.ExpandTableColumn(#"Expanded DimRole", "DimDepartment", {"Department ID"}, {"Department ID"}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Expanded DimDepartment",{"EmployeeID", "DateOfHire", "TimeToHireDays", "Source", "AvgRetentionMonths", "RoleID", "Department ID"}),
+		    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns",{"EmployeeID", "RoleID", "Department ID", "DateOfHire", "TimeToHireDays", "Source", "AvgRetentionMonths"})
+		in
+		    #"Reordered Columns"
+	lineageTag: c105968a-aa7d-4352-b296-32a7e073b2b6
+	queryGroup: Silver
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

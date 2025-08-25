@@ -1,0 +1,46 @@
+table DimRole
+	lineageTag: 61ae31c1-b46c-4d4d-a6e2-9075a1c89657
+
+	column Role
+		dataType: string
+		lineageTag: e929010e-0479-4c84-a1c7-5ddad839f60e
+		summarizeBy: none
+		sourceColumn: Role
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level
+		dataType: string
+		lineageTag: 720ec43a-6aa8-40d5-83a5-cf399b379e42
+		summarizeBy: none
+		sourceColumn: Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column RoleID
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ae17c80-c434-437d-b5d1-9bb5a988d999
+		summarizeBy: none
+		sourceColumn: RoleID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimRole = m
+		mode: import
+		queryGroup: Gold
+		source =
+				let
+				    Source = Table.Combine({#"Recruitment Staging", #"Transfers Staging", #"Seperations Staging"}),
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Role", "Level"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Duplicates", each ([Level] <> null)),
+				    #"Added Index" = Table.AddIndexColumn(#"Filtered Rows", "RoleID", 1, 1, Int64.Type),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Index",{"RoleID", "Role", "Level"})
+				in
+				    #"Reordered Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

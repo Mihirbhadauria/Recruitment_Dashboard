@@ -1,0 +1,13 @@
+relationship AutoDetected_e60e1b76-de98-4d8e-b805-411b7624d11e
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Recruitment Fact'.RoleID
+	toColumn: DimRole.RoleID
+
+relationship AutoDetected_c5f769ef-1ba4-448d-a558-12ab3bb50d23
+	fromColumn: 'Recruitment Fact'.'Department ID'
+	toColumn: DimDepartment.'Department ID'
+
+relationship ab2bb383-dcd3-4011-80b4-f3a370264058
+	fromColumn: 'Recruitment Fact'.DateOfHire
+	toColumn: 'Date Table'.Date
+

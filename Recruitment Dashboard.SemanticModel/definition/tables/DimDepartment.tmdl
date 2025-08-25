@@ -1,0 +1,38 @@
+table DimDepartment
+	lineageTag: 2b44c5ff-0c8e-4adc-b73b-bfa8bed711e9
+
+	column 'Department ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: b3910963-a71f-4df3-938d-dace71a4080f
+		summarizeBy: none
+		sourceColumn: Department ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 1f665efb-bec7-4ce0-bb6e-1232f255e3e2
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDepartment = m
+		mode: import
+		queryGroup: Gold
+		source =
+				let
+				    Source = Table.Combine({#"Recruitment Staging", #"Transfers Staging", #"Seperations Staging"}),
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Department"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Duplicates", each ([Department] <> null)),
+				    #"Added Index" = Table.AddIndexColumn(#"Filtered Rows", "Department ID", 1, 1, Int64.Type),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Index",{"Department ID", "Department"})
+				in
+				    #"Reordered Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

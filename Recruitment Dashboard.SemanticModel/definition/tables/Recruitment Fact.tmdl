@@ -1,0 +1,79 @@
+table 'Recruitment Fact'
+	lineageTag: 2dd444f5-2f7e-47dd-aba7-f3bb46274f63
+
+	column EmployeeID
+		dataType: string
+		lineageTag: 2f52bcd5-d278-4719-bc76-ef737f1aeca6
+		summarizeBy: none
+		sourceColumn: EmployeeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RoleID
+		dataType: int64
+		formatString: 0
+		lineageTag: f3f90f32-6d63-4691-aae1-d018fd970509
+		summarizeBy: none
+		sourceColumn: RoleID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Department ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 58b4dd26-0d90-4105-a063-7ecf4a2ac1db
+		summarizeBy: none
+		sourceColumn: Department ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateOfHire
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: e9bb35c3-eb3b-4ea4-a665-ba9c4ed6f387
+		summarizeBy: none
+		sourceColumn: DateOfHire
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TimeToHireDays
+		dataType: int64
+		formatString: 0
+		lineageTag: c4e902e9-bd53-422b-9272-e5ac73dccf0f
+		summarizeBy: sum
+		sourceColumn: TimeToHireDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: 1e8b6f32-6994-4f6e-993b-0b40fcaaa706
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column AvgRetentionMonths
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e89f80f-ee68-40fc-8ea4-04f54500f82f
+		summarizeBy: sum
+		sourceColumn: AvgRetentionMonths
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Recruitment Fact' = m
+		mode: import
+		queryGroup: Gold
+		source =
+				let
+				    Source = #"Recruitment Fact (Silver)"
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
