@@ -2,6 +2,7 @@
 
 This project demonstrates my ability to design and deliver **real-world recruitment analytics** — from raw data through to clean visual insights. It was built as a showcase for potential clients looking to understand how their people data can drive smarter hiring and retention decisions.
 
+![Dashboard Preview]("assets/Recruitment Overview Screenshot.jpg")
 ---
 
 ## 🚀 Why I Built This
