@@ -38,7 +38,7 @@ This project shows how I help clients:
 
 - ✅ `Sample_Recruitment_Data.xlsx` – includes Recruitment, Transfers, and Separations data
 - 🎨 Figma design files
-- 🧠 PowerBI Dashboard (Coming soon)
+- 🧠 PowerBI Dashboard
 
 ---
 
